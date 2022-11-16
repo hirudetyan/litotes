@@ -1,0 +1,9 @@
+image: gitpod/workspace-mysql
+tasks:
+  - command: > 
+      apachectl start
+ports:
+  - port: 8001
+    onOpen: notify
+  - port: 3306
+    onOpen: ignore
