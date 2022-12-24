@@ -1,7 +1,11 @@
+var appname = 'litotes';
+
 $(document).ready(function(){
     var id = $(location).attr('pathname').replace(/\//,"");
 
     if(/(^[a-zA-Z0-9]{1,10}$)/.test(id)){
+        $(document).attr('title', appname + ' /' + id);
+
         $.get("/api/pullNote", {id: id})
         .done(function(data){
             $(".note").val(data);
