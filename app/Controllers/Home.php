@@ -29,4 +29,13 @@ class Home extends BaseController
         return redirect()->to(base_url(). '/' . $randstr);
     }
 
+    public function outText($id)
+    {
+        $model = new NotesModel();
+        $id = preg_replace('/\.txt/', '', $id);
+        $this->response->setHeader('content-type', 'text/plain; charset="UTF-8"');
+
+        return $model->pullNote($id);
+    }
+
 }
