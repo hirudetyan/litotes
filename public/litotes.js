@@ -1,7 +1,7 @@
 var appname = 'litotes';
 
 $(document).ready(function(){
-    var id = $(location).attr('pathname').replace(/\//, '');
+    let id = $(location).attr('pathname').replace(/\//, '');
 
     if(/(^[a-zA-Z0-9]{1,10}$)/.test(id)){
         $(document).attr('title', appname + ' /' + id);
@@ -9,7 +9,7 @@ $(document).ready(function(){
         $.get('/api/pullNote', {id: id})
         .done(function(data){
             $('.note').val(data);
-            var note = $('.note').val();
+            let note = $('.note').val();
             setInterval(function(){
                 if (note !== $('.note').val()){
                     note = $('.note').val();
@@ -27,8 +27,8 @@ $(document).ready(function(){
 });
 
 $(window).on('beforeunload', function(event){
-    var id = $(location).attr('pathname').replace(/\//, '');
-    var note = $('.note').val();
+    let id = $(location).attr('pathname').replace(/\//, '');
+    let note = $('.note').val();
 
     if(/(^[a-zA-Z0-9]{1,10}$)/.test(id)){
         $.post('/api/pushNote', {id: id, note: note});
