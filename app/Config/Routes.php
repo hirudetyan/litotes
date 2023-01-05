@@ -43,7 +43,7 @@ $routes->get('/api/pullNote', 'Notes::pullNote');
 $routes->post('/api/pushNote', 'Notes::pushNote');
 $routes->get('/api/isNoteExists', 'Notes::isNoteExists');
 $routes->get('/api/randNote', 'Notes::randNote');
-$routes->get('/(^[a-zA-Z0-9]{1,10}$)', 'Home::index');
+$routes->get('/(^[a-zA-Z0-9]{1,10}$)', 'Home::view');
 
 
 /*
