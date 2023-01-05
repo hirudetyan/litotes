@@ -1,4 +1,5 @@
 var appname = 'litotes';
+var readyStatus = false;
 
 $(document).ready(function(){
     let id = $(location).attr('pathname').replace(/\//, '');
@@ -16,6 +17,7 @@ $(document).ready(function(){
                     $.post('/api/pushNote', {id: id, note: note});
                 }
             }, 5000);
+            readyStatus = true;
         });
     }
     else{
@@ -30,7 +32,7 @@ $(window).on('beforeunload', function(event){
     let id = $(location).attr('pathname').replace(/\//, '');
     let note = $('.note').val();
 
-    if(/(^[a-zA-Z0-9]{1,10}$)/.test(id)){
+    if(/(^[a-zA-Z0-9]{1,10}$)/.test(id) && readyStatus === true){
         $.post('/api/pushNote', {id: id, note: note});
     }
 
