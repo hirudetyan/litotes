@@ -38,4 +38,9 @@ class Home extends BaseController
         return $model->pullNote($id);
     }
 
+    public function outMD()
+    {
+        return view('md');
+    }
+
 }
