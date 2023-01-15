@@ -23,3 +23,16 @@ body{
     box-shadow: 0 0 10px #cfcfcf;
     border-radius: 1px;
 }
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #505050;
+    }
+    .note {
+        background-color: #292929;
+        color: #ffffff;
+    }
+    .box {
+        box-shadow: 0 0 10px #1d1d1d;
+    }
+}
