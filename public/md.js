@@ -10,7 +10,7 @@ $(document).ready(function(){
 
         $.get('/api/pullNote', {id: pullid})
         .done(function(data){
-            $('.markdown-body').html(DOMPurify.sanitize(marked.parse(data)));
+            $('.markdown-body').html(DOMPurify.sanitize(markdownit().render(data)));
         });
     }
     else{
